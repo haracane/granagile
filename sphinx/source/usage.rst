@@ -37,3 +37,13 @@ SphinxのPDF出力機能を使う場合は
 各種サーバの起動
 ================
 
+Unicorn, Nginx(ALMinium用), Apache(Git/Subversionリポジトリ用), Jenkinsを起動します::
+
+    # /sbin/service unicorn-alminium start
+    # /sbin/service nginx start
+    # /sbin/service httpd start
+    # /sbin/service jenkins start
+
+これでセットアップは完了です!
+
+http://server-address/alminium でALMiniumに、http://server-address:8080 でJenkinsにアクセスできるようになります。
