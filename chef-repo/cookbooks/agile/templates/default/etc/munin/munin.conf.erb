@@ -1,0 +1,39 @@
+#dbdir	/var/lib/munin
+#htmldir /var/www/html/munin
+#logdir /var/log/munin
+#rundir  /var/run/munin
+
+#tmpldir	/etc/munin/templates
+
+#staticdir /etc/munin/static
+
+# cgitmpdir /var/lib/munin/cgi-tmp
+
+includedir /etc/munin/conf.d
+
+#graph_period second
+
+graph_strategy cron
+
+#munin_cgi_graph_jobs 6
+
+#cgiurl_graph /munin-cgi/munin-cgi-graph
+
+#max_size_x 4000
+#max_size_y 4000
+
+html_strategy cron
+
+#max_processes 16
+
+#rrdcached_socket /var/run/rrdcached.sock
+
+#contact.someuser.command mail -s "Munin notification" somejuser@fnord.comm
+#contact.anotheruser.command mail -s "Munin notification" anotheruser@blibb.comm
+#
+#contact.nagios.command /usr/bin/send_nsca nagios.host.comm -c /etc/nsca.conf
+
+# a simple host tree
+[<%=node[:hostname]%>]
+    address <%=node[:ipaddress]%>
+    use_node_name yes

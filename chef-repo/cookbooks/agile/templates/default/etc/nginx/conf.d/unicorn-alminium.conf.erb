@@ -1,0 +1,4 @@
+upstream unicorn-alminium {
+  ip_hash;
+  server unix:/opt/alminium/tmp/sockets/unicorn.sock;
+}
