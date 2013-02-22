@@ -21,6 +21,7 @@
     "recipe[agile::apache-svn-alminium]",
     "recipe[agile::nginx-apache-vcs]",
     "recipe[agile::auto-create-alminium-vcs]",
+    "recipe[agile::ngircd]",
     "recipe[agile::jenkins]",
     "recipe[agile::yard]",
     "recipe[agile::sphinx]"
