@@ -26,7 +26,6 @@ Granagileは
    :maxdepth: 2
 
    usage.rst
-   sphinx.rst
 
 
 Indices and tables

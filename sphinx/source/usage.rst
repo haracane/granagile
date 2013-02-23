@@ -34,7 +34,6 @@ Unicorn, Nginx(ALMinium用), Apache(Git/Subversionリポジトリ用), Jenkins, 
     # /sbin/service httpd start
     # /sbin/service jenkins start
     # /sbin/service ngircd start
-    # /sbin/service minechan start
 
 これでセットアップは完了です!
 
@@ -43,6 +42,21 @@ Unicorn, Nginx(ALMinium用), Apache(Git/Subversionリポジトリ用), Jenkins, 
 * ALMinium http://server-address/alminium
 * Jenkins http://server-address:8080
 * ngIRCd server-address:6667
+
+minechanの設定＆起動
+====================
+
+minechanを利用する場合はRedmineの[管理]->[設定]->[認証]から"RESTによるWebサービスを有効にする"をチェックして、[個人設定]からAPIアクセスキーを確認します。
+
+RedmineのAPIキーを確認したら/opt/granagile/conf.d/redmine.shに以下の設定を追加します::
+
+    REDMINE_API_KEY=(RedmineのAPIアクセスキー)
+
+APIアクセスキーを設定したらminechanを起動します::
+
+    # /sbin/service minechan start
+
+minechanはngIRCdが起動していれば各Redmineプロジェクトの"#(プロジェクト識別子)"チャンネルに参加します。
 
 Sphinx PDF出力のセットアップ
 ============================
