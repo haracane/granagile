@@ -1,0 +1,31 @@
+{
+  "name": "granagile",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "variables" : {
+      "alminium_rack_path" : "/alminium",
+      "fcgiwrap_user" : "apache",
+      "httpd_port" : 8000,
+      "httpd_ssl_port" : 8443
+    }
+  },
+  "override_attributes": {
+    "variables" : {
+    }
+  },
+  "description": "install granagile",
+  "chef_type": "role",
+  "run_list": [
+    "recipe[centos::nginx-unicorn-alminium]",
+    "recipe[centos::apache-git-alminium]",
+    "recipe[centos::apache-svn-alminium]",
+    "recipe[centos::nginx-apache-vcs]",
+    "recipe[centos::ngircd]",
+    "recipe[centos::jenkins]",
+    "recipe[centos::yard]",
+    "recipe[centos::sphinx]",
+    "recipe[centos::granagile]",
+    "recipe[centos::auto-create-alminium-vcs]",
+    "recipe[centos::minechan]"
+  ]
+}

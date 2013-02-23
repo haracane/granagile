@@ -7,5 +7,5 @@ if [ ! -d /etc/chef ]; then
 fi
 
 echo 'file_cache_path "/tmp/chef-solo"
-cookbook_path ["/var/chef-repo/cookbooks"]
+cookbook_path ["/var/chef-repo/site-cookbooks", "/var/chef-repo/cookbooks"]
 role_path "/var/chef-repo/roles"' | sudo tee /etc/chef/solo.rb > /dev/null
