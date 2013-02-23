@@ -20,13 +20,34 @@ Granagile Chefで環境構築
 
 GranagileのChef設定を反映してアジャイルサーバを構築します::
 
+    # cd /opt
     # git clone https://github.com/haracane/granagile.git
-    # ./granagile/bin/chef-solo-role agile
+    # ./granagile/bin/install
+
+各種サーバの起動
+================
+
+Unicorn, Nginx(ALMinium用), Apache(Git/Subversionリポジトリ用), Jenkins, ngIRCd, minechanを起動します::
+
+    # /sbin/service unicorn-alminium start
+    # /sbin/service nginx start
+    # /sbin/service httpd start
+    # /sbin/service jenkins start
+    # /sbin/service ngircd start
+    # /sbin/service minechan start
+
+これでセットアップは完了です!
+
+各サービスには以下のアドレス、ポートからアクセスできますので確認してください。
+
+* ALMinium http://server-address/alminium
+* Jenkins http://server-address:8080
+* ngIRCd server-address:6667
 
 Sphinx PDF出力のセットアップ
 ============================
 
-SphinxのPDF出力機能を使う場合は
+新しいプロジェクトでSphinxのPDF出力機能を使う場合はsphinx-quickstartで作成したディレクトリで
 
 * `conf.pyへのPDFの設定の追加 <http://sphinx-users.jp/cookbook/pdf/rst2pdf.html#pdf>`_
 * `make pdfコマンドの追加 <http://sphinx-users.jp/cookbook/pdf/rst2pdf.html#id7>`_
@@ -34,16 +55,3 @@ SphinxのPDF出力機能を使う場合は
 
 を行います。
 
-各種サーバの起動
-================
-
-Unicorn, Nginx(ALMinium用), Apache(Git/Subversionリポジトリ用), Jenkinsを起動します::
-
-    # /sbin/service unicorn-alminium start
-    # /sbin/service nginx start
-    # /sbin/service httpd start
-    # /sbin/service jenkins start
-
-これでセットアップは完了です!
-
-http://server-address/alminium でALMiniumに、http://server-address:8080 でJenkinsにアクセスできるようになります。

@@ -13,6 +13,7 @@ end
   filepath = "/#{filename}"
   template filepath do
     source "#{filename}.erb"
+    variables(node[:variables])
   end
   file filepath do
     owner "root"

@@ -8,17 +8,19 @@ Welcome to Granagile's documentation!
 
 Granagileは
 
-* ALMinium
-  * Redmine
-  * Git
-  * Subversion
+* ALMinium(Redmine/Git/Subversion)
+
 * Jenkins
+
 * Sphinx
+
 * Chef
 
-などをまとめてインストールするためのCentOS6用アジャイルサーバセットアップツールです。
+* ngIRCd
 
-Contents:
+* minechan
+
+などをまとめてインストールするためのCentOS6用アジャイルサーバセットアップツールです。
 
 .. toctree::
    :maxdepth: 2

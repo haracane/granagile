@@ -1,0 +1,15 @@
+source $(dirname $0)/../conf/granagile-env.sh
+
+pid_path_option="--pid-path /var/run/minechan.pid"
+log_path=/var/log/minechan/minechan.log
+
+while true; do
+  if [ "$1" = --pid-path ]; then
+    pid_path_option="$1 $2"
+    shift 2
+  else
+    break
+  fi
+done
+
+sh $SCRIPT_DIR/minechan/call-minechan-for-projects.sh $pid_path_option > $log_path 2>&1 &

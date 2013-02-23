@@ -24,7 +24,6 @@
     "recipe[centos::jenkins]",
     "recipe[centos::yard]",
     "recipe[centos::sphinx]",
-    "recipe[centos::granagile]",
     "recipe[centos::auto-create-alminium-vcs]",
     "recipe[centos::minechan]"
   ]

@@ -1,0 +1,4 @@
+wdir=$(cd $(dirname $0)/..; pwd)
+
+$wdir/bin/chef-solo-role install
+if [ $? != 0 ]; then exit 1; fi

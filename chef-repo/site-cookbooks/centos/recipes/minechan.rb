@@ -18,8 +18,27 @@ end
 
 execute "git clone https://github.com/onishi/Redmine-Chan.git" do
   user "root"
-  cwd "/opt/granagile"
+  cwd "/opt/granagile/lib"
   command "git clone https://github.com/onishi/Redmine-Chan.git"
-  creates "/opt/granagile/Redmine-Chan"
+  creates "/opt/granagile/lib/Redmine-Chan"
 end
 
+[
+  "etc/init.d/minechan"
+  ].each do |filename|
+  filepath = "/#{filename}"
+  template filepath do
+    source "#{filename}.erb"
+    variables(node[:variables])
+  end
+  file filepath do
+    owner "root"
+    group "root"
+    mode  "0755"
+  end
+end
+
+service "minechan" do
+  supports :start => true, :stop => true, :restart=>true
+  action :enable
+end
