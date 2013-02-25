@@ -24,7 +24,7 @@ execute "git clone https://github.com/onishi/Redmine-Chan.git" do
 end
 
 user "minechan" do
-  gid "minechan"
+  shell "/bin/bash"
 end
 
 [
