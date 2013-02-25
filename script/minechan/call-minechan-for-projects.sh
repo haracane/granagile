@@ -18,4 +18,5 @@ for id_project in $(sh $SCRIPT_DIR/select-from-projects.sh id,identifier | awk '
 done
 
 $PERL_CMD -I$LIB_DIR/Redmine-Chan/lib $SCRIPT_DIR/minechan/minechan.pl \
-  $pid_path_option $irc_channels_option --redmine-api-key $REDMINE_API_KEY
+  $pid_path_option $irc_channels_option \
+  --redmine-url $REDMINE_URL --redmine-api-key $REDMINE_API_KEY
