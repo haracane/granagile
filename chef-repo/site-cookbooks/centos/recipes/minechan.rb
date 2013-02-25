@@ -23,6 +23,10 @@ execute "git clone https://github.com/onishi/Redmine-Chan.git" do
   creates "/opt/granagile/lib/Redmine-Chan"
 end
 
+user "minechan" do
+  gid "minechan"
+end
+
 [
   "etc/init.d/minechan"
   ].each do |filename|
