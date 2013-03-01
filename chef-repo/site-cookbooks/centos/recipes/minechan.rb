@@ -16,10 +16,10 @@ execute "cpan #{cpan_modules.join(" ")}" do
   command "yes '' | cpan #{cpan_modules.join(" ")}"
 end
 
-execute "git clone https://github.com/onishi/Redmine-Chan.git" do
+execute "git clone https://github.com/haracane/Redmine-Chan.git" do
   user "root"
   cwd "/opt/granagile/lib"
-  command "git clone https://github.com/onishi/Redmine-Chan.git"
+  command "git clone https://github.com/haracane/Redmine-Chan.git"
   creates "/opt/granagile/lib/Redmine-Chan"
 end
 
