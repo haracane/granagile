@@ -1,0 +1,86 @@
+#!/bin/sh
+# chkconfig: 2345 98 20
+# description: cassandra database
+# processname: cassandrad
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Get config.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+if [ ${NETWORKING} = "no" ]; then
+    exit 0
+fi
+
+CASSANDRA_HOME=/usr/lib/cassandra108
+cassandrad=${CASSANDRA_HOME}/bin/cassandra
+pidfile=/var/run/cassandra108.pid
+lockfile=/var/lock/subsys/cassandrad108
+service="Cassandra1.0.8 Database"
+prog=cassandrad
+RETVAL=0
+
+start() {
+    if [ -r ${pidfile} ]; then
+        echo "PIDFILE already exists."
+        RETVAL=1
+    fi
+    [ ${RETVAL} = 1 ] && return
+    echo -n "Starting ${service}: "
+    ${cassandrad} -p ${pidfile}
+    RETVAL=$?
+    if [ ${RETVAL} = 0 ]; then
+        echo_success
+        touch ${lockfile}
+    else
+        echo_failure
+        rm -f ${pidfile}
+    fi
+    echo
+    return ${RETVAL}
+}
+
+stop() {
+    if [ ! -r ${pidfile} ]; then
+        echo "PIDFILE is not found."
+        RETVAL=1
+    fi
+    [ ${RETVAL} = 1 ] && return
+    echo -n $"Stopping ${service}: "
+    kill -KILL `cat ${pidfile}`
+    RETVAL=$?
+    if [ ${RETVAL} = 0 ]; then
+        echo_success
+        rm -f ${lockfile} ${pidfile}
+    else
+        echo_failure
+    fi
+    echo
+    return ${RETVAL}
+}
+
+# See how we were called.
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status -p ${pidfile} ${prog}
+        RETVAL=$?
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: ${service} {start|stop|status|restart}"
+        RETVAL=1
+esac
+
+exit ${RETVAL}
+

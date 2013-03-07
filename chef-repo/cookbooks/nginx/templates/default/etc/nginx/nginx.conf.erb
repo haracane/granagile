@@ -1,0 +1,52 @@
+user  nobody;
+worker_processes  1;
+
+error_log  /var/log/nginx/error.log;
+#error_log  /var/log/nginx/error.log  debug;
+#error_log  /var/log/nginx/error.log  notice;
+#error_log  /var/log/nginx/error.log  info;
+
+pid        /var/run/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    server_tokens off;
+
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  180;
+    proxy_read_timeout 180;
+    proxy_send_timeout 180;
+
+    server_name_in_redirect  off;
+
+    ## config gzip: 2012-03-30 ##
+    gzip              on;
+    gzip_http_version 1.0;
+    gzip_vary         on;
+    gzip_comp_level   6;
+    gzip_types        html xml css xhtml application/xml rss atom js;
+    gzip_disable      "MSIE [1-6]\.";
+
+    ## config proxy: 2012-03-30 ##
+    proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=czone:4m max_size=50m inactive=120m;
+    proxy_temp_path  /var/tmp/nginx;
+
+    # Load config files from the /etc/nginx/conf.d directory
+    include conf.d/*.conf;
+
+}

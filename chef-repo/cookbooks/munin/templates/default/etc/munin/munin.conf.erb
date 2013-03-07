@@ -1,0 +1,9 @@
+dbdir   /var/lib/munin
+htmldir /var/www/munin
+logdir  /var/log/munin
+rundir  /var/run/munin
+
+tmpldir /etc/munin/templates
+
+[<%=node[:hostname]%>]
+    address 127.0.0.1
