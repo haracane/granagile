@@ -1,4 +1,4 @@
-include_recipe "centos::yum-repos-jenkins"
+include_recipe "granagile::yum-repos-jenkins"
 
 execute "yum install jenkins" do
   user "root"

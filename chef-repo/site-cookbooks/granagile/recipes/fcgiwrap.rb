@@ -1,4 +1,4 @@
-include_recipe "centos::spawn-fcgi"
+include_recipe "granagile::spawn-fcgi"
 
 package "fcgi-devel" do
   action :install

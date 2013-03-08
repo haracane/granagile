@@ -1,14 +1,15 @@
-include_recipe "centos::nginx"
+include_recipe "granagile::nginx"
 
-include_recipe "centos::php-fastcgi"
+include_recipe "granagile::apache"
 
 [
-  "etc/nginx/conf.d/default/php-fastcgi.conf",
-  "etc/nginx/conf.d/ssl/php-fastcgi.conf"
+  "etc/nginx/conf.d/default/vcs.conf",
+  "etc/nginx/conf.d/ssl/vcs.conf"
   ].each do |filename|
   filepath = "/#{filename}"
   template filepath do
     source "#{filename}.erb"
+    variables(node[:variables])
   end
   file filepath do
     owner "root"
@@ -16,4 +17,3 @@ include_recipe "centos::php-fastcgi"
     mode  "0644"
   end
 end
-

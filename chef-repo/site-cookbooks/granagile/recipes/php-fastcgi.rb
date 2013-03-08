@@ -1,6 +1,6 @@
-include_recipe "centos::php"
+include_recipe "granagile::php"
 
-include_recipe "centos::spawn-fcgi"
+include_recipe "granagile::spawn-fcgi"
 
 [
   "etc/init.d/php-fastcgi"

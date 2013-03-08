@@ -1,10 +1,11 @@
-include_recipe "centos::nginx"
+include_recipe "granagile::nginx"
 
-include_recipe "centos::apache"
+include_recipe "granagile::unicorn-alminium"
 
 [
-  "etc/nginx/conf.d/default/vcs.conf",
-  "etc/nginx/conf.d/ssl/vcs.conf"
+  "etc/nginx/conf.d/unicorn-alminium.conf",
+  "etc/nginx/conf.d/default/alminium.conf",
+  "etc/nginx/conf.d/ssl/alminium.conf"
   ].each do |filename|
   filepath = "/#{filename}"
   template filepath do

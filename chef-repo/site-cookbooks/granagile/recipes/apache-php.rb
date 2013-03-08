@@ -1,4 +1,4 @@
-include_recipe "centos::php"
+include_recipe "granagile::php"
 
 [
   "etc/httpd/conf.d/php.conf"

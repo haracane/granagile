@@ -1,6 +1,6 @@
-include_recipe "centos::apache"
+include_recipe "granagile::apache"
 
-include_recipe "centos::subversion"
+include_recipe "granagile::subversion"
 
 [
   "mod_auth_mysql"

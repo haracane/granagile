@@ -1,6 +1,6 @@
-include_recipe "centos::apache"
+include_recipe "granagile::apache"
 
-include_recipe "centos::git"
+include_recipe "granagile::git"
 
 link "/git" do
   to "/var/git"

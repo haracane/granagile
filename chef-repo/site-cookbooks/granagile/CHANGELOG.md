@@ -1,10 +1,10 @@
-# CHANGELOG for centos
+# CHANGELOG for granagile
 
-This file is used to list changes made in each version of centos.
+This file is used to list changes made in each version of granagile.
 
 ## 0.1.0:
 
-* Initial release of centos
+* Initial release of granagile
 
 - - - 
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

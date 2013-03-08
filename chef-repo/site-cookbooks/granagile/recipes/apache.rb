@@ -1,4 +1,4 @@
-include_recipe "centos::yum-repos-CentALT"
+include_recipe "granagile::yum-repos-CentALT"
 
 execute "yum install httpd" do
   user "root"

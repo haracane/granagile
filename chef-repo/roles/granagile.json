@@ -16,15 +16,15 @@
   "description": "install granagile",
   "chef_type": "role",
   "run_list": [
-    "recipe[centos::nginx-unicorn-alminium]",
-    "recipe[centos::apache-git-alminium]",
-    "recipe[centos::apache-svn-alminium]",
-    "recipe[centos::nginx-apache-vcs]",
-    "recipe[centos::ngircd]",
-    "recipe[centos::jenkins]",
-    "recipe[centos::yard]",
+    "recipe[granagile::nginx-unicorn-alminium]",
+    "recipe[granagile::apache-git-alminium]",
+    "recipe[granagile::apache-svn-alminium]",
+    "recipe[granagile::nginx-apache-vcs]",
+    "recipe[granagile::ngircd]",
+    "recipe[granagile::jenkins]",
+    "recipe[granagile::yard]",
     "recipe[sphinx::sphinx]",
-    "recipe[centos::auto-create-alminium-vcs]",
-    "recipe[centos::minechan]"
+    "recipe[granagile::auto-create-alminium-vcs]",
+    "recipe[granagile::minechan]"
   ]
 }

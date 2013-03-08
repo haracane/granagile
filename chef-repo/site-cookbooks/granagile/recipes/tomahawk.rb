@@ -1,4 +1,4 @@
-include_recipe "centos::pip"
+include_recipe "granagile::pip"
 
 execute "install tomahawk" do
   user "root"

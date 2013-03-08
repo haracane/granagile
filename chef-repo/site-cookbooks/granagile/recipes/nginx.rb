@@ -1,4 +1,4 @@
-include_recipe "centos::yum-repos-nginx"
+include_recipe "granagile::yum-repos-nginx"
 
 execute "yum install nginx" do
   user "root"

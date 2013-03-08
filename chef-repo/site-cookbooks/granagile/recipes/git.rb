@@ -13,6 +13,6 @@ directory "/var/git" do
   action :create
 end
 
-include_recipe "centos::git-completion"
+include_recipe "granagile::git-completion"
 
-include_recipe "centos::git-flow"
+include_recipe "granagile::git-flow"

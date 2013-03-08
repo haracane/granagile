@@ -1,6 +1,6 @@
-include_recipe "centos::yum-repos-epel"
+include_recipe "granagile::yum-repos-epel"
 
-include_recipe "centos::yum-repos-remi"
+include_recipe "granagile::yum-repos-remi"
 
 execute "yum install php php-cli php-fpm php-devel php-gd php-mbstring php-mysql php-pdo php-pear" do
   user "root"

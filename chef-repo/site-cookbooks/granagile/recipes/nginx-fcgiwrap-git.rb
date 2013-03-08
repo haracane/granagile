@@ -1,8 +1,8 @@
-include_recipe "centos::nginx"
+include_recipe "granagile::nginx"
 
-include_recipe "centos::fcgiwrap"
+include_recipe "granagile::fcgiwrap"
 
-include_recipe "centos::git"
+include_recipe "granagile::git"
 
 link "/git" do
   to "/var/git"

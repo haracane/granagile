@@ -6,9 +6,9 @@ execute "install rst2pdf" do
   creates "/usr/bin/rst2pdf"
 end
 
-include_recipe "centos::VL-Gothic-font-20091202"
+include_recipe "sphinx::VL-Gothic-font-20091202"
 
-include_recipe "centos::IPAex-font-00201"
+include_recipe "sphinx::IPAex-font-00201"
 
 execute "fix reportlab" do
   user "root"
