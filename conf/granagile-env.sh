@@ -7,6 +7,7 @@ SCRIPT_DIR=$GRANAGILE_HOME/script
 MYSQL_OPTION="-u alminium -palminium -D alminium"
 
 MYSQL_CMD=mysql
-PERL_CMD=perl
+PERL_CMD=/root/perl5/perlbrew/perls/perl-5.16.2/bin/perl
+#PERL_CMD=perl
 
 source $GRANAGILE_HOME/conf.d/*.sh

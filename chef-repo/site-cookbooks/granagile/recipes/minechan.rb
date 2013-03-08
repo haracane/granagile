@@ -1,6 +1,8 @@
-yum_package "perl-CPAN" do
-  action :install
-end
+include_recipe "perl::perlbrew"
+
+include_recipe "perl::perlbrew-perl-5.16.2"
+
+include_recipe "perl::perlbrew-cpanm"
 
 cpan_modules = [
   "inc::Module::Install",
@@ -8,12 +10,16 @@ cpan_modules = [
   "AnyEvent",
   "AnyEvent::IRC::Connection",
   "WebService::Simple",
-  "Class::Accessor::Lite"
+  "Class::Accessor::Lite",
+  "Mouse"
 ]
 
-execute "cpan #{cpan_modules.join(" ")}" do
-  user "root"
-  command "yes '' | cpan #{cpan_modules.join(" ")}"
+cpan_modules.each do |cpan_module|
+  execute "cpanm #{cpan_module}" do
+    user "root"
+    command "/root/perl5/perlbrew/perls/perl-5.16.2/bin/perl /root/perl5/perlbrew/bin/cpanm #{cpan_module}"
+    creates "/root/perl5/perlbrew/perls/perl-5.16.2/lib/site_perl/5.16.2/#{cpan_module.gsub(/::/, "/")}.pm"
+  end
 end
 
 execute "git clone https://github.com/haracane/Redmine-Chan.git" do
