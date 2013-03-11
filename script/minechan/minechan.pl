@@ -3,6 +3,7 @@ use Redmine::Chan;
 my %params = (
   irc_server => "localhost",
   irc_port => 6667,
+  irc_password => "",
   redmine_url => "http://localhost/alminium/"
 );
 
@@ -52,9 +53,16 @@ while ( my ($key, $val) = each(%irc_channels) ){
   print STDERR "IRC Channel: ", $key, "\n";
 }
 
+if($params{redmine_url} !~ /\/$/) {
+  $params{redmine_url} .= "/";
+}
+
 print STDERR "Redmine URL: ", $params{redmine_url}, "\n";
 
 $params{irc_channels} = \%irc_channels;
 
 my $minechan = Redmine::Chan->new(%params);
 $minechan->cook;
+
+# - $uri->path("/issues/$issue->{id}");
+# + $uri->path($uri->path . "issues/$issue->{id}");

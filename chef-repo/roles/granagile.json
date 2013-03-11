@@ -25,6 +25,6 @@
     "recipe[granagile::yard]",
     "recipe[sphinx::sphinx]",
     "recipe[granagile::auto-create-alminium-vcs]",
-    "recipe[granagile::minechan]"
+    "recipe[granagile::minechand]"
   ]
 }
