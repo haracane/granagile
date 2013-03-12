@@ -1,6 +1,8 @@
-include_recipe "granagile::nginx"
+include_recipe "nginx::nginx"
+include_recipe "nginx::nginx-on"
 
-include_recipe "granagile::apache"
+include_recipe "apache::apache"
+include_recipe "apache::apache-on"
 
 [
   "etc/nginx/conf.d/default/vcs.conf",

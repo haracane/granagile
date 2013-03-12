@@ -1,4 +1,5 @@
-include_recipe "granagile::nginx"
+include_recipe "nginx::nginx"
+include_recipe "nginx::nginx-on"
 
 include_recipe "granagile::fcgiwrap"
 

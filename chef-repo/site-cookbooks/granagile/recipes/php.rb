@@ -1,4 +1,4 @@
-include_recipe "granagile::yum-repos-epel"
+include_recipe "epel::yum-repos-epel"
 
 include_recipe "granagile::yum-repos-remi"
 

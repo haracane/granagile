@@ -1,4 +1,5 @@
-include_recipe "granagile::apache"
+include_recipe "apache::apache"
+include_recipe "apache::apache-on"
 
 include_recipe "granagile::subversion"
 
